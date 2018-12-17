@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="textfortw">Привет мир!</string>
+    <string name="somevalue">Hello brunoyam</string>
+    <string name="somevalue1">Hello brunoyam brunoyam</string>
+    <string name="somevalue2">Hello brunoyam brunoyam brunoyam</string>
+</resources>

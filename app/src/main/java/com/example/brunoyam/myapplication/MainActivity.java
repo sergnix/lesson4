@@ -37,9 +37,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState)  {
+    protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(v.getId()==R.id.send);*/
                 String result = "login:" + et1.getText().toString() + "\n";
                 result += "password:" + Objects.hashCode(et2.getText().toString()) + "\n";
-                ((MainActivity)v.getContext()).saveText(result);
+                ((MainActivity) v.getContext()).saveText(result);
             }
         };
 
@@ -83,23 +82,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     void saveText(String value) {
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor ed = sPref.edit();
         ed.putString(SAVED_TEXT + String.valueOf(i), value);
         ed.commit();
         i++;
-        //Toast.makeText(this, "Text saved", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Text saved", Toast.LENGTH_SHORT).show();
     }
 
     void loadText() {
         sPref = getPreferences(MODE_PRIVATE);
         String result = "";
-        for (int j = i-1; j > -1 ; j--) {
-            String temp= sPref.getString(SAVED_TEXT + String.valueOf(j), "no value found");
-            result+=temp;
+        for (int j = i - 1; j > -1; j--) {
+            String temp = sPref.getString(SAVED_TEXT + String.valueOf(j), "no value found");
+            result += temp;
         }
         tv.setText(result);
         //Toast.makeText(this, "Text loaded", Toast.LENGTH_SHORT).show();
@@ -107,14 +104,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     /*public void sendMessage(View view) {
-        *//*Intent intent = new Intent(this, DisplayMessageActivity.class);
+     *//*Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText editText = (EditText) findViewById(R.id.edit_message);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);*//*
 
     }*/
-    class ProgressTask extends AsyncTask<Void, Integer, Void>{
+    class ProgressTask extends AsyncTask<Void, Integer, Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {
